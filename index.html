@@ -126,8 +126,15 @@ input[type=range] { width: 100%; accent-color: var(--sky); }
 
 /* ── 푸터 ── */
 footer { border-top: 1px solid var(--hairline); padding: 36px 0 46px; font-size: 13px; color: rgba(34,49,74,.55); }
-.foot-inner { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.foot-inner { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.foot-name { font-weight: 800; color: var(--ink); }
 footer a { border-bottom: 1px solid var(--hairline); }
+.contact-btn { border: 1.5px solid var(--ink); border-radius: 10px; padding: 6px 14px;
+  font-weight: 700; color: var(--ink); border-bottom: 1.5px solid var(--ink); }
+.contact-btn:hover { background: var(--ink); color: var(--paper); }
+.foot-right { margin-left: auto; text-align: right; }
+.biz { display: block; font-size: 12px; color: rgba(34,49,74,.45); }
+@media (max-width: 640px) { .foot-right { margin-left: 0; text-align: left; } }
 </style>
 </head>
 <body>
@@ -312,8 +319,11 @@ footer a { border-bottom: 1px solid var(--hairline); }
 
 <footer>
   <div class="wrap foot-inner">
-    <div>© 2026 ForgeLab · Jason Lee — 맑음 (MALGEUM)</div>
-    <div><a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a></div>
+    <span class="foot-name">맑음 · MALGEUM</span>
+    <a href="privacy.html">개인정보 처리방침</a>
+    <a href="terms.html">이용약관</a>
+    <a class="contact-btn" href="mailto:forgelab.aitech@gmail.com?subject=%5B%EB%A7%91%EC%9D%8C%5D%20%EB%AC%B8%EC%9D%98">✉️ 문의하기</a>
+    <span class="foot-right">© 2026 ForgeLab<span class="biz">ForgeLab · 대표 Jason Lee</span></span>
   </div>
 </footer>
 
