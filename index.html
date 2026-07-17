@@ -72,18 +72,12 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
 .ghost { color: var(--muted); font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 6px; }
 .ghost:hover { color: var(--text); }
 
-/* 떠 있는 필름 프레임 카드 (Suno식 가장자리 카드) */
-.float-card { position: absolute; width: 190px; border-radius: 18px; overflow: hidden; z-index: -1;
-  border: 1px solid rgba(255,255,255,.12); box-shadow: 0 30px 80px rgba(0,0,0,.55);
-  opacity: 0; transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.2,.7,.2,1); }
-.float-card .fc-sky { height: 150px; }
-.float-card .fc-cap { padding: 9px 12px; background: var(--surface); font-size: 11px; color: var(--muted);
-  display: flex; align-items: center; gap: 6px; }
-.float-card.left { left: -40px; top: 30%; transform: rotate(-9deg) translateX(-60px); }
-.float-card.right { right: -40px; top: 26%; transform: rotate(8deg) translateX(60px); }
-.float-card.left.in { opacity: 1; transform: rotate(-9deg) translateX(0); }
-.float-card.right.in { opacity: 1; transform: rotate(8deg) translateX(0); }
-@media (max-width: 1000px) { .float-card { display: none; } }
+/* 히어로 시네마틱 배경 — 새벽빛 방 (CSS 필러 카드 대체) */
+.hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: -1; }
+.hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .8; }
+.hero-bg::after { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 62% 52% at 50% 45%, rgba(10,11,13,.86), rgba(10,11,13,.5) 62%, rgba(10,11,13,.88)),
+    linear-gradient(180deg, rgba(10,11,13,.88), transparent 24%, transparent 70%, var(--bg)); }
 .scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: var(--faint); font-size: 12px;
   display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .scroll-cue .bar { width: 1px; height: 26px; background: linear-gradient(var(--faint), transparent); animation: cue 1.8s ease-in-out infinite; }
@@ -103,10 +97,22 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
 .sec-head .kicker { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sky); margin-bottom: 14px; }
 .sec-head p { color: var(--muted); margin-top: 12px; font-size: 16px; }
 
-/* 큰 선언 섹션 */
-.statement { text-align: center; }
-.statement h2 { max-width: 20ch; margin: 0 auto; font-size: clamp(28px, 4.6vw, 50px); }
-.statement .under { color: var(--muted); margin-top: 20px; font-size: 16px; }
+/* 선언 = 풀블리드 시네마 밴드 (텍스트만 있던 섹션 대체) */
+.band { position: relative; padding: 0; min-height: 76vh; display: flex; align-items: center; overflow: hidden;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.band video, .band .band-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.band::after { content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(10,11,13,.3) 0%, rgba(10,11,13,.45) 34%, rgba(10,11,13,.93) 64%, rgba(10,11,13,.97) 100%),
+    linear-gradient(180deg, rgba(10,11,13,.55), transparent 30%, transparent 70%, rgba(10,11,13,.75)); }
+.band .wrap { position: relative; z-index: 2; }
+.band-copy { margin-left: auto; max-width: 620px; text-align: right; word-break: keep-all; }
+.band-copy h2 { font-size: clamp(24px, 3.4vw, 40px); text-shadow: 0 2px 24px rgba(0,0,0,.75); word-break: keep-all; }
+.band-copy .under { color: rgba(238,242,247,.82); margin-top: 18px; font-size: 16px; text-shadow: 0 2px 14px rgba(0,0,0,.85); word-break: keep-all; }
+@media (max-width: 760px) {
+  .band { min-height: 62vh; }
+  .band::after { background: linear-gradient(180deg, rgba(10,11,13,.5), rgba(10,11,13,.86) 55%, rgba(10,11,13,.95)); }
+  .band-copy { margin: 0; max-width: none; text-align: center; }
+}
 
 /* 스텝 · 기능 카드 */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -189,13 +195,10 @@ footer a:not(.contact-btn):hover { color: var(--text); }
 
 <!-- HERO -->
 <header class="hero" id="download">
-  <div class="float-card left" id="fcL">
-    <div class="fc-sky" style="background:linear-gradient(180deg,#4A9DE0,#A9C9EC 60%,#F2E9DC)"></div>
-    <div class="fc-cap">🔇 무음 · 0.4초 전</div>
-  </div>
-  <div class="float-card right" id="fcR">
-    <div class="fc-sky" style="background:linear-gradient(180deg,#FCD9A0,#F4845F 60%,#7a4a63)"></div>
-    <div class="fc-cap">🔇 무음 · 1.2초 전</div>
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-dawn.jpg" aria-hidden="true">
+      <source src="assets/video/hero-dawn.mp4" type="video/mp4" />
+    </video>
   </div>
 
   <span class="eyebrow"><span class="mute-dot"></span> iOS · 무음 카메라 · 되감기 1.2초</span>
@@ -211,11 +214,16 @@ footer a:not(.contact-btn):hover { color: var(--text); }
   <div class="scroll-cue"><span>스크롤</span><span class="bar"></span></div>
 </header>
 
-<!-- 선언 -->
-<section class="statement">
-  <div class="wrap reveal">
-    <h2>셔터를 누른 <span class="grad-text">그 순간</span>이 아니라,<br />방금 <span class="grad-text">지나간 순간</span>을.</h2>
-    <p class="under">무음필름은 화면에 들어온 순간을 계속 기억합니다. 셔터는, 그중 하나를 고를 뿐이에요.</p>
+<!-- 선언 = 시네마 밴드 -->
+<section class="band">
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/video/moment-cafe.jpg" aria-hidden="true">
+    <source src="assets/video/moment-cafe.mp4" type="video/mp4" />
+  </video>
+  <div class="wrap">
+    <div class="band-copy reveal from-right">
+      <h2>셔터를 누른 <span class="grad-text">그 순간</span>이 아니라,<br />방금 <span class="grad-text">지나간 순간</span>을.</h2>
+      <p class="under">웃음은 이미 지나갔고, 셔터는 늦습니다.<br />무음필름은 그 순간을 이미 기억하고 있어요 — 소리도 없이.</p>
+    </div>
   </div>
 </section>
 
@@ -266,32 +274,22 @@ footer a:not(.contact-btn):hover { color: var(--text); }
     </div>
     <div class="grid">
       <div class="card feature reveal from-left" data-delay="1">
-        <lottie-player src="lottie/silent.json" background="transparent" speed="1" loop autoplay></lottie-player>
-        <h3>셔터음 없음</h3>
-        <p>한국·일본처럼 시스템이 셔터음을 강제하는 곳에서도 무음입니다. 영상 프레임에서 담기 때문이에요.</p>
-      </div>
-      <div class="card feature reveal" data-delay="2">
-        <lottie-player src="lottie/rewind.json" background="transparent" speed="1" loop autoplay></lottie-player>
-        <h3>1.2초 되감기</h3>
-        <p>셔터를 누르기 前 순간을 저장합니다. 반응이 늦어도, 그 표정은 이미 담겨 있어요.</p>
-      </div>
-      <div class="card feature reveal from-right" data-delay="3">
         <lottie-player src="lottie/film-tone.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <h3>필름 톤 12종</h3>
         <p>맑음·노을·밤선명 등 열두 가지 톤. 사진과 영상 모두에 원탭으로 입혀요.</p>
       </div>
-      <div class="card feature reveal from-left" data-delay="1">
+      <div class="card feature reveal" data-delay="2">
         <lottie-player src="lottie/level.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <h3>수평선 가이드</h3>
         <p>수평이 되는 순간 물들고 손끝에 햅틱이. 급하게 담아도 반듯하게.</p>
       </div>
-      <div class="card feature reveal" data-delay="2">
+      <div class="card feature reveal from-right" data-delay="3">
         <lottie-player src="lottie/stamp.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <h3>날짜 스탬프</h3>
         <p>담은 날과 그날의 무드를 우하단에 사뿐히. 켜고 끄는 건 자유.</p>
       </div>
-      <div class="card feature reveal from-right" data-delay="3">
-        <div class="big-line grad-text">계정 없음<br />서버 없음</div>
+      <div class="card feature reveal from-left" data-delay="1" style="grid-column: 1 / -1;">
+        <div class="big-line grad-text">계정 없음 · 서버 없음</div>
         <h3>데이터 수집 없음</h3>
         <p>모든 처리는 아이폰 안에서 끝납니다. 담은 순간은 어디에도 보내지 않아요.</p>
       </div>
@@ -358,10 +356,20 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-// 히어로 떠 있는 카드 진입
-window.addEventListener("load", () => {
-  setTimeout(() => { document.getElementById("fcL").classList.add("in"); document.getElementById("fcR").classList.add("in"); }, 250);
-});
+// 영상: 화면 밖이면 정지(배터리·성능), Reduce Motion이면 포스터만
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const videos = [...document.querySelectorAll("video")];
+if (reduceMotion) {
+  videos.forEach(v => { v.autoplay = false; v.pause(); v.removeAttribute("autoplay"); });
+} else {
+  const vio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { v.play?.().catch(() => {}); } else { v.pause?.(); }
+    });
+  }, { threshold: 0.1 });
+  videos.forEach(v => vio.observe(v));
+}
 
 // 되감기 데모
 const strip = document.getElementById("strip");
