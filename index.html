@@ -8,15 +8,15 @@
 <meta property="og:title" content="무음필름 — 소리 없이, 지나간 순간까지" />
 <meta property="og:description" content="셔터 소리 없이, 방금 지나간 순간까지 담는 카메라. 되감기 1.2초." />
 <meta property="og:type" content="website" />
-<meta name="theme-color" content="#0A0B0D" />
+<meta name="theme-color" content="#F4F8FC" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1116'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23D3DEEA' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='13.5' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0.35' y2='1'%3E%3Cstop offset='0' stop-color='%234A9DE0'/%3E%3Cstop offset='.55' stop-color='%23B7A8E0'/%3E%3Cstop offset='1' stop-color='%23F4845F'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E" />
 <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
 <style>
 :root {
-  --bg: #0A0B0D; --surface: #14171D; --surface-2: #1B1F27; --line: rgba(211,222,234,.10);
-  --text: #EEF2F7; --muted: #93A0B2; --faint: #5E6875;
+  --bg: #F4F8FC; --surface: #FFFFFF; --surface-2: #EAF2FA; --line: rgba(34,49,74,.10);
+  --text: #22314A; --muted: #5B6B80; --faint: #93A3B5;
   --sky: #4A9DE0; --lav: #B7A8E0; --sun: #FFD66B; --coral: #F4845F;
-  --grad: linear-gradient(100deg, #4A9DE0, #B7A8E0 52%, #F4845F);
+  --grad: linear-gradient(100deg, #3E90D6, #9C8AD6 52%, #EF7A50);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -35,14 +35,12 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
 
 /* 배경 글로우 (분위기) + 그레인 */
 .glow { position: fixed; border-radius: 50%; filter: blur(90px); opacity: .5; z-index: -2; pointer-events: none; }
-.glow.a { width: 620px; height: 620px; background: radial-gradient(circle, #2f6fb2 0%, transparent 70%); top: -180px; left: -160px; }
-.glow.b { width: 560px; height: 560px; background: radial-gradient(circle, #7a5fb0 0%, transparent 70%); top: 26%; right: -220px; opacity: .38; }
-.glow.c { width: 620px; height: 620px; background: radial-gradient(circle, #b8563f 0%, transparent 72%); bottom: 4%; left: 8%; opacity: .28; }
-.grain { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .05; mix-blend-mode: screen;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.glow.a { width: 620px; height: 620px; background: radial-gradient(circle, #BBD8F2 0%, transparent 70%); top: -180px; left: -160px; opacity: .8; }
+.glow.b { width: 560px; height: 560px; background: radial-gradient(circle, #D9CEF2 0%, transparent 70%); top: 26%; right: -220px; opacity: .55; }
+.glow.c { width: 620px; height: 620px; background: radial-gradient(circle, #FAD9C6 0%, transparent 72%); bottom: 4%; left: 8%; opacity: .5; }
 
 /* NAV */
-.nav { position: sticky; top: 0; z-index: 50; background: rgba(10,11,13,.55);
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(244,248,252,.72);
   backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid var(--line); }
 .nav-inner { max-width: 1080px; margin: 0 auto; padding: 15px 24px; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
@@ -50,8 +48,8 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
   background: linear-gradient(160deg, var(--sky), var(--lav) 55%, var(--coral)); box-shadow: 0 0 16px rgba(74,157,224,.5); }
 .nav-links { display: flex; gap: 28px; font-size: 14px; align-items: center; color: var(--muted); }
 .nav-links a:not(.cta):hover { color: var(--text); }
-.cta { color: #0A0B0D; background: var(--text); padding: 8px 17px; border-radius: 100px; font-weight: 700; }
-.cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(238,242,247,.18); }
+.cta { color: #FFFFFF; background: var(--text); padding: 8px 17px; border-radius: 100px; font-weight: 700; }
+.cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,49,74,.28); }
 .cta, .store-badge, .ghost, .contact-btn { transition: all .2s ease; }
 @media (max-width: 760px) { .nav-links a:not(.cta) { display: none; } }
 
@@ -59,30 +57,31 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
 .hero { min-height: 92vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 60px 24px 40px; position: relative; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .02em;
-  color: var(--muted); border: 1px solid var(--line); padding: 7px 15px; border-radius: 100px; margin-bottom: 30px;
-  background: rgba(255,255,255,.02); }
+  color: rgba(238,242,247,.85); border: 1px solid rgba(238,242,247,.22); padding: 7px 15px; border-radius: 100px; margin-bottom: 30px;
+  background: rgba(255,255,255,.05); }
 .mute-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.6px solid var(--sky); position: relative; }
 .mute-dot::after { content: ""; position: absolute; inset: -1px 4px; border-left: 1.6px solid var(--sky); transform: rotate(45deg); }
+.hero { color: #EEF2F7; }
 .hero h1 { max-width: 14ch; }
-.hero-sub { color: var(--muted); font-size: clamp(16px, 2vw, 19px); max-width: 34ch; margin: 26px auto 34px; }
+.hero-sub { color: rgba(238,242,247,.8); font-size: clamp(16px, 2vw, 19px); max-width: 34ch; margin: 26px auto 34px; }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; }
-.store-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--text); color: #0A0B0D;
+.store-badge { display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; color: #16202E;
   padding: 12px 22px; border-radius: 100px; font-weight: 600; }
 .store-badge:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(238,242,247,.2); }
 .store-badge small { display: block; font-size: 10.5px; opacity: .7; line-height: 1.1; }
 .store-badge .big { font-size: 16px; font-weight: 700; line-height: 1.2; }
-.ghost { color: var(--muted); font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 6px; }
-.ghost:hover { color: var(--text); }
+.ghost { color: rgba(238,242,247,.72); font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 6px; }
+.ghost:hover { color: #FFFFFF; }
 
 /* 히어로 시네마틱 배경 — 새벽빛 방 (CSS 필러 카드 대체) */
 .hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: -1; }
 .hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: .8; }
 .hero-bg::after { content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 62% 52% at 50% 45%, rgba(10,11,13,.86), rgba(10,11,13,.5) 62%, rgba(10,11,13,.88)),
-    linear-gradient(180deg, rgba(10,11,13,.88), transparent 24%, transparent 70%, var(--bg)); }
-.scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: var(--faint); font-size: 12px;
+  background: radial-gradient(ellipse 62% 52% at 50% 45%, rgba(10,11,13,.8), rgba(10,11,13,.42) 62%, rgba(10,11,13,.7)),
+    linear-gradient(180deg, rgba(10,11,13,.82), transparent 26%, transparent 62%, var(--bg)); }
+.scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: rgba(238,242,247,.55); font-size: 12px;
   display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.scroll-cue .bar { width: 1px; height: 26px; background: linear-gradient(var(--faint), transparent); animation: cue 1.8s ease-in-out infinite; }
+.scroll-cue .bar { width: 1px; height: 26px; background: linear-gradient(rgba(238,242,247,.55), transparent); animation: cue 1.8s ease-in-out infinite; }
 @keyframes cue { 0%,100% { opacity: .3; transform: scaleY(.7); } 50% { opacity: 1; transform: scaleY(1); } }
 
 /* 스크롤 리빌 (JS 없으면 그냥 보이도록 .js로 가드) */
@@ -107,7 +106,7 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
   background: linear-gradient(90deg, rgba(10,11,13,.3) 0%, rgba(10,11,13,.45) 34%, rgba(10,11,13,.93) 64%, rgba(10,11,13,.97) 100%),
     linear-gradient(180deg, rgba(10,11,13,.55), transparent 30%, transparent 70%, rgba(10,11,13,.75)); }
 .band .wrap { position: relative; z-index: 2; }
-.band-copy { margin-left: auto; max-width: 620px; text-align: right; word-break: keep-all; }
+.band-copy { margin-left: auto; max-width: 620px; text-align: right; word-break: keep-all; color: #EEF2F7; }
 .band-copy h2 { font-size: clamp(24px, 3.4vw, 40px); text-shadow: 0 2px 24px rgba(0,0,0,.75); word-break: keep-all; }
 .band-copy .under { color: rgba(238,242,247,.82); margin-top: 18px; font-size: 16px; text-shadow: 0 2px 14px rgba(0,0,0,.85); word-break: keep-all; }
 @media (max-width: 760px) {
@@ -121,8 +120,8 @@ h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
 @media (max-width: 860px) { .steps { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
 .card { border: 1px solid var(--line); border-radius: 20px; padding: 22px; background: var(--surface);
-  position: relative; overflow: hidden; }
-.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent); }
+  position: relative; overflow: hidden; box-shadow: 0 12px 32px rgba(74,127,183,.09); }
+.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(74,157,224,.35), transparent); }
 .card lottie-player { width: 100%; height: 122px; margin-bottom: 12px; }
 .step-num { font-size: 12px; font-weight: 800; letter-spacing: .06em; color: var(--sky); }
 .card h3 { margin: 8px 0 7px; }
@@ -154,9 +153,9 @@ input[type=range] { width: 100%; accent-color: var(--sky); }
 
 /* 가격 */
 .price-card { border: 1px solid var(--line); border-radius: 26px; padding: 46px; text-align: center; max-width: 480px; margin: 0 auto;
-  background: linear-gradient(180deg, var(--surface-2), var(--surface)); position: relative; overflow: hidden; }
+  background: linear-gradient(180deg, #FFFFFF, var(--surface-2)); position: relative; overflow: hidden; box-shadow: 0 18px 44px rgba(74,127,183,.12); }
 .price-card::before { content: ""; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 300px; height: 160px;
-  background: radial-gradient(ellipse, rgba(74,157,224,.4), transparent 70%); filter: blur(30px); }
+  background: radial-gradient(ellipse, rgba(74,157,224,.28), transparent 70%); filter: blur(30px); }
 .price-old { text-decoration: line-through; color: var(--faint); font-size: 18px; position: relative; }
 .price-now { font-size: 52px; font-weight: 800; margin: 4px 0 2px; letter-spacing: -0.02em; position: relative; }
 .price-note { font-size: 13px; color: var(--muted); position: relative; }
@@ -171,7 +170,7 @@ footer { border-top: 1px solid var(--line); padding: 40px 0 52px; font-size: 13p
 footer a:not(.contact-btn) { color: var(--muted); }
 footer a:not(.contact-btn):hover { color: var(--text); }
 .contact-btn { border: 1px solid var(--line); border-radius: 100px; padding: 7px 15px; font-weight: 600; color: var(--text); }
-.contact-btn:hover { background: var(--text); color: #0A0B0D; }
+.contact-btn:hover { background: var(--text); color: #FFFFFF; }
 .foot-right { margin-left: auto; text-align: right; }
 .biz { display: block; font-size: 12px; color: var(--faint); }
 @media (max-width: 640px) { .foot-right { margin-left: 0; text-align: left; } }
@@ -180,7 +179,6 @@ footer a:not(.contact-btn):hover { color: var(--text); }
 <body>
 <script>document.documentElement.classList.add('js');</script>
 <div class="glow a"></div><div class="glow b"></div><div class="glow c"></div>
-<div class="grain"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -323,7 +321,7 @@ footer a:not(.contact-btn):hover { color: var(--text); }
 <section id="pricing">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center; margin: 0 auto 46px;">
-      <div class="kicker" style="color:var(--sun)">Price</div>
+      <div class="kicker" style="color:var(--coral)">Price</div>
       <h2>한 번 사면, 끝</h2>
       <p>구독 없음. 잠긴 기능 없음. 광고 없음.</p>
     </div>
