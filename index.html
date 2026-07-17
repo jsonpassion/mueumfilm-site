@@ -22,7 +22,9 @@
 html { scroll-behavior: smooth; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", sans-serif;
   background: var(--bg); color: var(--text); line-height: 1.62; -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  /* 한국어: 어절 중간에서 끊기지 않게 (긴 URL 등만 예외적으로 넘김) */
+  word-break: keep-all; overflow-wrap: break-word; }
 a { color: inherit; text-decoration: none; }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 section { padding: 108px 0; position: relative; }
@@ -233,7 +235,7 @@ footer a:not(.contact-btn):hover { color: var(--text); }
     <div class="sec-head reveal">
       <div class="kicker">How it works</div>
       <h2>소리 없이, 놓치지 않고</h2>
-      <p>네 단계면 충분합니다. 조용히, 그리고 이미 지나간 순간까지.</p>
+      <p>켜고, 정하고, 누르면 끝. 네 단계면 충분합니다.</p>
     </div>
     <div class="steps">
       <div class="card reveal from-left" data-delay="1">
@@ -246,13 +248,13 @@ footer a:not(.contact-btn):hover { color: var(--text); }
         <lottie-player src="lottie/rewind.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <div class="step-num">STEP 2</div>
         <h3>되감기를 정하세요</h3>
-        <p>지금부터 1.2초 전까지. 카메라는 이미 지나간 순간을 계속 기억하고 있어요.</p>
+        <p>셔터를 감싼 다이얼을 돌려 지금부터 1.2초 전까지. 눈금마다 손끝에 딸깍.</p>
       </div>
       <div class="card reveal from-right" data-delay="3">
         <lottie-player src="lottie/lens.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <div class="step-num">STEP 3</div>
         <h3>셔터를 누르면</h3>
-        <p>누른 순간이 아니라, 방금 지나간 순간이 담깁니다. "아, 놓쳤다"가 사라져요.</p>
+        <p>"아, 놓쳤다"가 사라집니다. 반응이 반 박자 늦어도 그 표정은 이미 담겨 있어요.</p>
       </div>
       <div class="card reveal from-right" data-delay="4">
         <lottie-player src="lottie/film-tone.json" background="transparent" speed="1" loop autoplay></lottie-player>
@@ -269,19 +271,19 @@ footer a:not(.contact-btn):hover { color: var(--text); }
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Why</div>
-      <h2>왜 무음필름일까요</h2>
-      <p>소리가 나야만 하는 곳에서, 조용히 그리고 놓치지 않고.</p>
+      <h2>무음과 되감기, 그다음</h2>
+      <p>조용히 담은 순간을 조금 더 오래 보고 싶어질 때를 위해.</p>
     </div>
     <div class="grid">
       <div class="card feature reveal from-left" data-delay="1">
         <lottie-player src="lottie/film-tone.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <h3>필름 톤 12종</h3>
-        <p>맑음·노을·밤선명 등 열두 가지 톤. 사진과 영상 모두에 원탭으로 입혀요.</p>
+        <p>맑음·노을·밤선명… 좌우로 밀면 한가운데 온 톤이 곧바로 적용됩니다.</p>
       </div>
       <div class="card feature reveal" data-delay="2">
         <lottie-player src="lottie/level.json" background="transparent" speed="1" loop autoplay></lottie-player>
         <h3>수평선 가이드</h3>
-        <p>수평이 되는 순간 물들고 손끝에 햅틱이. 급하게 담아도 반듯하게.</p>
+        <p>수평이 맞는 순간 선이 파랗게 물들고, 손끝에 햅틱이 옵니다. 급하게 담아도 반듯하게.</p>
       </div>
       <div class="card feature reveal from-right" data-delay="3">
         <lottie-player src="lottie/stamp.json" background="transparent" speed="1" loop autoplay></lottie-player>
