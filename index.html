@@ -157,6 +157,7 @@ input[type=range] { width: 100%; accent-color: var(--sky); }
 .price-card::before { content: ""; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 300px; height: 160px;
   background: radial-gradient(ellipse, rgba(74,157,224,.28), transparent 70%); filter: blur(30px); }
 .price-old { text-decoration: line-through; color: var(--faint); font-size: 18px; position: relative; }
+.price-free { color: var(--sky); font-size: 18px; font-weight: 700; position: relative; }
 .price-now { font-size: 52px; font-weight: 800; margin: 4px 0 2px; letter-spacing: -0.02em; position: relative; }
 .price-note { font-size: 13px; color: var(--muted); position: relative; }
 .price-list { text-align: left; margin: 26px auto 0; max-width: 300px; font-size: 14.5px; position: relative; }
@@ -322,18 +323,19 @@ footer a:not(.contact-btn):hover { color: var(--text); }
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center; margin: 0 auto 46px;">
       <div class="kicker" style="color:var(--coral)">Price</div>
-      <h2>한 번 사면, 끝</h2>
-      <p>구독 없음. 잠긴 기능 없음. 광고 없음.</p>
+      <h2>먼저 써보고, 마음에 들면</h2>
+      <p>받는 건 무료. 20장까지 전 기능을 그대로 써보세요.</p>
     </div>
     <div class="price-card reveal">
-      <div class="price-old">₩2,200</div>
+      <div class="price-free">무료로 시작</div>
       <div class="price-now grad-text">₩1,100</div>
-      <div class="price-note">출시 특가 · 1회 결제</div>
+      <div class="price-note">계속 담고 싶을 때 · 한 번만 결제</div>
       <ul class="price-list">
-        <li><b>셔터음 없는</b> 무음 촬영</li>
-        <li><b>1.2초 되감기</b> · 사진 + 영상</li>
+        <li><b>무료로</b> 20장까지 — 기능 제한 없이</li>
+        <li>이후 <b>저장 무제한</b> · 사진 + 영상</li>
+        <li>셔터음 없는 무음 촬영 · <b>1.2초 되감기</b></li>
         <li>필름 톤 12종 · 수평선 · 스탬프</li>
-        <li>계정·서버·데이터 수집 <b>없음</b></li>
+        <li>구독·광고 없음 · 데이터 수집 <b>없음</b></li>
       </ul>
     </div>
   </div>
